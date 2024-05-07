@@ -1,5 +1,5 @@
 ### EX7 Implementation of Link Analysis using HITS Algorithm
-### DATE: 
+### DATE:
 ### AIM: To implement Link Analysis using HITS Algorithm in Python.
 ### Description:
 <div align = "justify">
@@ -44,16 +44,18 @@ def hits_algorithm(adjacency_matrix, max_iterations=100, tol=1.0e-6):
     
     for i in range(max_iterations):
         # Authority update
-
-             /*WRITE YOUR CODE HERE
+        new_authority_scores = np.dot(adjacency_matrix.T, hub_scores)
+        # Normalize
+        new_authority_scores /= np.linalg.norm(new_authority_scores)
         
         # Hub update
-
-             /*WRITE YOUR CODE HERE
+        new_hub_scores = np.dot(adjacency_matrix, new_authority_scores)
+        # Normalize
+        new_hub_scores /= np.linalg.norm(new_hub_scores)
         
         # Check convergence
-
-             /*WRITE YOUR CODE HERE
+        authority_diff = np.linalg.norm(new_authority_scores - authority_scores)
+        hub_diff = np.linalg.norm(new_hub_scores - hub_scores)
         
         if authority_diff < tol and hub_diff < tol:
             break
@@ -90,8 +92,16 @@ plt.xticks(nodes, [f'Node {i}' for i in nodes])
 plt.legend()
 plt.tight_layout()
 plt.show()
+
+    
 ```
 
 ### Output:
 
-### Result:
+![Screenshot 2024-04-18 135408](https://github.com/chandramohan3/WDM_EXP7/assets/142579775/75aef62c-280d-4882-9feb-6add1aefdc17)
+
+![Screenshot 2024-04-18 135426](https://github.com/chandramohan3/WDM_EXP7/assets/142579775/3f65ba99-311c-4327-abfb-b520cb485248)
+
+
+
+### Result: Thus the Implementation of Link Analysis using HITS Algorithm is completed successfully.
